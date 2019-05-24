@@ -1,0 +1,39 @@
+﻿using System.Collections.Generic;
+using System.IO;
+
+namespace PgSharper.Core
+{
+    /// <summary>
+    /// Main interface for pgp tool.
+    /// </summary>
+    public interface IPgpTool
+    {
+        /// <summary>
+        /// Gets or sets a different keyring folder than default.
+        /// </summary>
+        /// <value>
+        /// The keyring folder.
+        /// </value>
+        string KeyringFolder { get; set; }
+
+        /// <summary>
+        /// Processes data with stream input.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns>Output stream.</returns>
+        Stream ProcessData(StreamDataInput input);
+
+        /// <summary>
+        /// Processes data with file input.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        void ProcessData(FileDataInput input);
+
+        /// <summary>
+        /// Lists the known keys.
+        /// </summary>
+        /// <param name="target">The target.</param>
+        /// <returns></returns>
+        IEnumerable<KeyId> ListKeys(KeyTarget target);
+    }
+}
