@@ -27,11 +27,10 @@ namespace PgSharper
             var encryptArg = new FileDataInput
             {
                 Armor = true,
-                InputFile = @"d:\\shitforjacob.txt",
-                OutputFile = @"d:\\shitforjacob.txt.gpg",
+                InputFile = @"d:\\stuff.txt",
+                OutputFile = @"d:\\stuff.txt.gpg",
                 Operation = DataOperation.Encrypt,
-              //  Recipient = "0024E3B797E424FC0C64462B9A94B4AE200EE548",
-              Recipient = configuration["PgSettings:Recipient"]
+                Recipient = configuration["PgSettings:Recipient"]
             };
             tool.ProcessData(encryptArg);
 
